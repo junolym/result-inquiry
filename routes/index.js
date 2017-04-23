@@ -36,16 +36,16 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
     if (!req.body || !req.body.username || !req.body.password) {
-        res.render('failed', { error : '请输入学号和身份证后6位（留学生为护照）' });
+        res.render('index', { error : '请输入学号和身份证后6位（留学生为护照）' });
     }
 
     else {
         if (!info[req.body.username]) {
-            res.render('failed', { error : '系统中无该学号' });
+            res.render('index', { error : '系统中无该学号' });
         }
 
         else if (info[req.body.username].password.toUpperCase() != req.body.password.toUpperCase()) {
-            res.render('failed', { error : '身份证或护照号有误' });
+            res.render('index', { error : '身份证或护照号有误' });
         }
 
         else {
